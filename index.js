@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express()
 const axios = require("axios")
-
+const port = process.env.PORT || 3000
 
 app.use(express.json())
 app.get("/desafiotake", async (req, res) => {
@@ -10,12 +10,14 @@ app.get("/desafiotake", async (req, res) => {
         const formatado = data.filter(repos => repos.language == "C#")
         return res.json(formatado)
 
+
+
         
 
     } catch (error) {
         console.log(error)
     }
 })
-app.listen(3000, ()=>{
+app.listen(port, ()=>{
     console.log("Servidor rodando")
 })
