@@ -8,12 +8,6 @@ app.get("/desafiotake", async (req, res) => {
     try {
         const { data } = await axios.get("https://api.github.com/users/takenet/repos")
         const formatado = data.filter(repos => repos.language == "C#")
-        
-        const results =  data 
-        ? desafiotake.filter(takerepos => takerepos.title.includes(formatado))
-        : desafiotake;
-
-
         return res.json(formatado)
 
 
